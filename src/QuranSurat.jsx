@@ -11,7 +11,7 @@ function QuranSurat() {
       .then((res) => res.json())
       .then((json) => {
         setSurat(json.data.surahs);
-        setFilterSurat(json.data.surahs); 
+        setFilterSurat(json.data.surahs);
       })
       .catch((er) => console.log('error! :', er));
   }, []);
@@ -19,9 +19,13 @@ function QuranSurat() {
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearch(value);
-    const filtered = Surat.filter((s) =>
-      s.name.includes(value) ||  s.englishName.toLowerCase().includes(value.toLowerCase())
+
+    const filtered = Surat.filter(
+      (s) =>
+        s.name.includes(value) ||
+        s.englishName.toLowerCase().includes(value.toLowerCase())
     );
+
     setFilterSurat(filtered);
   };
 
@@ -29,21 +33,21 @@ function QuranSurat() {
     <div>
       {Surat.length === 0 && <p>Loading...</p>}
 
-      <ul>
-        <input
-          type='search'
-          placeholder='search'
-          value={search}
-          onChange={handleSearch}
-        />
-        {filteredSurat.map((s) => (
-            <Link className='link' key={s.number} to={`/Quran/${s.number - 1}`}>
-                <li>
-                {s.number}. {s.name} , {s.englishName}
-                </li>
-            </Link>
-        ))}
+      <input
+        type='search'
+        placeholder='Search Surah'
+        value={search}
+        onChange={handleSearch}
+      />
 
+      <ul>
+        {filteredSurat.map((s) => (
+          <Link className='link' key={s.number} to={`/Quran/${s.number}`}>
+            <li>
+              {s.number}. {s.name} , {s.englishName}
+            </li>
+          </Link>
+        ))}
       </ul>
     </div>
   );

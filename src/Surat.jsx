@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 function Surat() {
-  const { id } = useParams();
+  const { id } = useParams(); // actual Surah number
   const [surah, setSurah] = useState(null);
-  const [lang, setLang] = useState('ar')
+  const [lang, setLang] = useState('ar');
 
   useEffect(() => {
     const translation = lang === 'ar' ? 'ar.alafasy' : 'en.asad';
     
-    fetch(`https://api.alquran.cloud/v1/surah/${parseInt(id) + 1}/${translation}`)
+    fetch(`https://api.alquran.cloud/v1/surah/${id}/${translation}`)
       .then(res => res.json())
       .then(json => setSurah(json.data))
       .catch(err => console.log(err));
-  }, [id , lang]);
+  }, [id, lang]);
 
   const revelationTypeLang = {
     Meccan: 'مكية',
@@ -41,7 +41,13 @@ function Surat() {
         <p><strong>{lang === 'ar' ? 'رقم السورة' : 'Surah Number'}:</strong> {surah.number}</p>
         <p><strong>{lang === 'ar' ? 'عدد الآيات' : 'Number of Ayahs'}:</strong> {surah.numberOfAyahs}</p>
         <p><strong>{lang === 'ar' ? 'مكان النزول' : 'Revelation Type'}:</strong> {lang === 'ar'? revelationTypeLang[surah.revelationType] : surah.revelationType}</p>
-        <p><strong>{lang === 'ar' ? 'اللغة' : 'Language'}:</strong> <select value={lang} onChange={(e)=> setLang(e.target.value)}><option value='ar'>arabic</option><option value='eng'>eng</option></select></p>
+        <p>
+          <strong>{lang === 'ar' ? 'اللغة' : 'Language'}:</strong> 
+          <select value={lang} onChange={(e)=> setLang(e.target.value)}>
+            <option value='ar'>Arabic</option>
+            <option value='en'>English</option>
+          </select>
+        </p>
       </aside>
     </section>
   );
