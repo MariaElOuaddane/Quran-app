@@ -36,13 +36,14 @@ function QuranSurat() {
           value={search}
           onChange={handleSearch}
         />
-        {filteredSurat.map((s, index) => (
-          <Link className='link' key={s.number} to={`/Quran/${index}`}>
-            <li>
-              {s.number}. {s.name} , {s.englishName}
-            </li>
-          </Link>
+        {filteredSurat.map((s) => (
+            <Link className='link' key={s.number} to={`/Quran/${s.number - 1}`}>
+                <li>
+                {s.number}. {s.name} , {s.englishName}
+                </li>
+            </Link>
         ))}
+
       </ul>
     </div>
   );
