@@ -11,7 +11,7 @@ function QuranSurat() {
       .then((res) => res.json())
       .then((json) => {
         setSurat(json.data.surahs);
-        setFilterSurat(json.data.surahs); // Initialize filteredSurat
+        setFilterSurat(json.data.surahs); 
       })
       .catch((er) => console.log('error! :', er));
   }, []);

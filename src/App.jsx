@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import {BrowserRouter , Routes, Route, Link} from 'react-router-dom'
 import QuranSurat from './QuranSurat'
@@ -20,7 +19,6 @@ function App() {
         <Route path='/Quran' element={<QuranSurat/>}></Route>
         <Route path='/Quran/:id' element={<Surat/>}></Route>
       </Routes>
-    
     
     <footer>
         2025
