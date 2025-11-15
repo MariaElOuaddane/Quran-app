@@ -1,5 +1,5 @@
 import './App.css'
-import {BrowserRouter , Routes, Route, Link} from 'react-router-dom'
+import {HashRouter , Routes, Route, Link} from 'react-router-dom'
 import QuranSurat from './QuranSurat'
 import Surat from './Surat'
 import QuranMain from './QuranMain'
@@ -7,7 +7,7 @@ import QuranMain from './QuranMain'
 function App() {
 
   return(
-    <><BrowserRouter>
+    <HashRouter>
     <header>
       <section><h2>Quran App</h2></section>
       <Link to={'/Quran'}>Quran</Link>
@@ -23,7 +23,7 @@ function App() {
     <footer>
         2025
     </footer>
-    </BrowserRouter></>
+    </HashRouter>
   )
 }
 
