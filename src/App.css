@@ -149,3 +149,14 @@ select {
   background-color: #fff;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
+
+.surat-section {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .surat-section {
+    display: flex ;
+    flex-direction: column-reverse ; 
+  }
+}
