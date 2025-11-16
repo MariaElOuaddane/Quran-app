@@ -153,6 +153,10 @@ select {
 .surat-section {
   display: flex;
 }
+.quran-font {
+  font-family: 'KFGQPC HAFS', serif;
+}
+
 
 @media (max-width: 768px) {
   .surat-section {

@@ -7,7 +7,7 @@ function Surat() {
   const [lang, setLang] = useState('ar');
 
   useEffect(() => {
-    const translation = lang === 'ar' ? 'ar.alafasy' : 'en.asad';
+    const translation = lang === 'ar' ? 'quran-uthmani' : 'en.asad';
     
     fetch(`https://api.alquran.cloud/v1/surah/${id}/${translation}`)
       .then(res => res.json())
@@ -25,12 +25,12 @@ function Surat() {
   return (
     <section className='surat-section' style={{ display: 'flex', gap: '20px' }}>
       <div style={{ flex: 3 }}>
-        <h3>{lang === 'ar' ? surah.name : surah.englishName}</h3>
+        <h3 className="quran-font">{lang === 'ar' ? surah.name : surah.englishName}</h3>
         <h4>عدد الآيات: <strong>{surah.numberOfAyahs}</strong></h4>
-        <p>
+        <p className="quran-font">
           {surah.ayahs.map(a => (
             <span key={a.numberInSurah}>
-              {a.text}{" "} <strong>({a.numberInSurah})</strong>. 
+              {a.text}{" "} <strong>({a.numberInSurah})</strong>{' '} 
             </span>
           ))}
         </p>

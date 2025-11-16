@@ -7,7 +7,7 @@ function QuranSurat() {
   const [filteredSurat, setFilterSurat] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.alquran.cloud/v1/quran/ar.alafasy')
+    fetch('https://api.alquran.cloud/v1/quran/quran-uthmani')
       .then((res) => res.json())
       .then((json) => {
         setSurat(json.data.surahs);
