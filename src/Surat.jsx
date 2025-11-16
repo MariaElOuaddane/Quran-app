@@ -30,7 +30,7 @@ function Surat() {
         <p>
           {surah.ayahs.map(a => (
             <span key={a.numberInSurah}>
-              <strong>({a.numberInSurah})</strong>. {a.text}{" "}
+              {a.text}{" "} <strong>({a.numberInSurah})</strong>. 
             </span>
           ))}
         </p>
